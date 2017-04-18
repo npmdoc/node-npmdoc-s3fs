@@ -1,0 +1,2599 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://github.com/RiptideElements/s3fs">s3fs (v2.5.0)</a>
+</h1>
+<h4>Implementation of Node.JS FS interface using Amazon Simple Storage Service (S3).</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs">module s3fs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.s3fs">
+            function <span class="apidocSignatureSpan"></span>s3fs
+            <span class="apidocSignatureSpan">(bucket, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats">
+            function <span class="apidocSignatureSpan">s3fs.</span>Stats
+            <span class="apidocSignatureSpan">(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec, birthtim_msec, path )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.s3WriteStream">
+            function <span class="apidocSignatureSpan">s3fs.</span>s3WriteStream
+            <span class="apidocSignatureSpan">(client, bucket, key, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.appendFile">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.appendFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.createReadStream">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.createReadStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.createWriteStream">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.createWriteStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.exists">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.exists
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.lstat">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.lstat
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.mkdir">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.mkdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.readFile">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.readFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.readdir">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.readdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.realpath">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.realpath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.rmdir">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.rmdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.stat">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.stat
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.unlink">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.unlink
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.writeFile">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.writeFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.toString">
+            function <span class="apidocSignatureSpan">s3fs.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">s3fs.</span>Stats.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">s3fs.</span>s3WriteStream.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">s3fs.</span>super_.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">s3fs.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.Stats">module s3fs.Stats</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.Stats">
+            function <span class="apidocSignatureSpan">s3fs.</span>Stats
+            <span class="apidocSignatureSpan">(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec, birthtim_msec, path )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.create">
+            function <span class="apidocSignatureSpan">s3fs.Stats.</span>create
+            <span class="apidocSignatureSpan">(object)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.is">
+            function <span class="apidocSignatureSpan">s3fs.Stats.</span>is
+            <span class="apidocSignatureSpan">(object)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.Stats.prototype">module s3fs.Stats.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.prototype.isBlockDevice">
+            function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isBlockDevice
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.prototype.isCharacterDevice">
+            function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isCharacterDevice
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.prototype.isDirectory">
+            function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isDirectory
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.prototype.isFIFO">
+            function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isFIFO
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.prototype.isFile">
+            function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.prototype.isSocket">
+            function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isSocket
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.Stats.prototype.isSymbolicLink">
+            function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isSymbolicLink
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.s3WriteStream">module s3fs.s3WriteStream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.s3WriteStream.s3WriteStream">
+            function <span class="apidocSignatureSpan">s3fs.</span>s3WriteStream
+            <span class="apidocSignatureSpan">(client, bucket, key, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.s3WriteStream.super_">
+            function <span class="apidocSignatureSpan">s3fs.s3WriteStream.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.s3WriteStream.prototype">module s3fs.s3WriteStream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.s3WriteStream.prototype.end">
+            function <span class="apidocSignatureSpan">s3fs.s3WriteStream.prototype.</span>end
+            <span class="apidocSignatureSpan">(chunk, encoding, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.s3WriteStream.prototype.write">
+            function <span class="apidocSignatureSpan">s3fs.s3WriteStream.prototype.</span>write
+            <span class="apidocSignatureSpan">(chunk, enc, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_">module s3fs.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.super_">
+            function <span class="apidocSignatureSpan">s3fs.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype">module s3fs.super_.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.appendFile">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>appendFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.createReadStream">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>createReadStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.createWriteStream">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>createWriteStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.exists">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>exists
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.lstat">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>lstat
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.mkdir">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>mkdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.readFile">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>readFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.readdir">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>readdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.realpath">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>realpath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.rmdir">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>rmdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.stat">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>stat
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.unlink">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>unlink
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.writeFile">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>writeFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.appendFile">module s3fs.super_.prototype.appendFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.appendFile.appendFile">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>appendFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.createReadStream">module s3fs.super_.prototype.createReadStream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.createReadStream.createReadStream">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>createReadStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.createWriteStream">module s3fs.super_.prototype.createWriteStream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.createWriteStream.createWriteStream">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>createWriteStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.exists">module s3fs.super_.prototype.exists</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.exists.exists">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>exists
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.lstat">module s3fs.super_.prototype.lstat</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.lstat.lstat">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>lstat
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.mkdir">module s3fs.super_.prototype.mkdir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.mkdir.mkdir">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>mkdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.readFile">module s3fs.super_.prototype.readFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.readFile.readFile">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>readFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.readdir">module s3fs.super_.prototype.readdir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.readdir.readdir">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>readdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.realpath">module s3fs.super_.prototype.realpath</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.realpath.realpath">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>realpath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.rmdir">module s3fs.super_.prototype.rmdir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.rmdir.rmdir">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>rmdir
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.stat">module s3fs.super_.prototype.stat</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.stat.stat">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>stat
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.unlink">module s3fs.super_.prototype.unlink</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.unlink.unlink">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>unlink
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.super_.prototype.writeFile">module s3fs.super_.prototype.writeFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.super_.prototype.writeFile.writeFile">
+            function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>writeFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.toString">module s3fs.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.toString.toString">
+            function <span class="apidocSignatureSpan">s3fs.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.s3fs.utils">module s3fs.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.utils.decomposePath">
+            function <span class="apidocSignatureSpan">s3fs.utils.</span>decomposePath
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.utils.isAbsolute">
+            function <span class="apidocSignatureSpan">s3fs.utils.</span>isAbsolute
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.utils.joinPaths">
+            function <span class="apidocSignatureSpan">s3fs.utils.</span>joinPaths
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.utils.normalizeArray">
+            function <span class="apidocSignatureSpan">s3fs.utils.</span>normalizeArray
+            <span class="apidocSignatureSpan">(parts, allowAboveRoot)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.utils.normalizePath">
+            function <span class="apidocSignatureSpan">s3fs.utils.</span>normalizePath
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.s3fs.utils.toKey">
+            function <span class="apidocSignatureSpan">s3fs.utils.</span>toKey
+            <span class="apidocSignatureSpan">(fullPath, bucket, bucketPath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs" id="apidoc.module.s3fs">module s3fs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.s3fs" id="apidoc.element.s3fs.s3fs">
+        function <span class="apidocSignatureSpan"></span>s3fs
+        <span class="apidocSignatureSpan">(bucket, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function S3fs(bucket, options) {
+    if (!(this instanceof S3fs)) {
+        return new S3fs(bucket, options);
+    }
+
+    if (!bucket) {
+        throw new Error('bucket is required');
+    }
+
+    if (typeof bucket !== 'string') {
+        throw new Error('bucket must be a string');
+    }
+
+    var bucketParts = s3Utils.decomposePath(bucket);
+    this.s3 = options instanceof AWS.S3 ? options : new AWS.S3(options);
+    this.bucket = bucketParts[0];
+    this.path = bucketParts.slice(1).join('/');
+    if (this.path) {
+        this.path += '/';
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats" id="apidoc.element.s3fs.Stats">
+        function <span class="apidocSignatureSpan">s3fs.</span>Stats
+        <span class="apidocSignatureSpan">(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec, birthtim_msec, path )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stats(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec, birthtim_msec, path ) {
+<span class="apidocCodeCommentSpan">    /* jshint maxparams: 4 */
+</span>    if (arguments.length === 1 &amp;&amp; typeof arguments[0] === 'object') {
+        return Stats.create(arguments[0]);
+    }
+    if (!Stats.is(this)) {
+        return new Stats(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec,
+            birthtim_msec, path);
+    }
+
+    var entry = path;
+    this.getEntry = function () {
+        return entry;
+    };
+
+    /* ID of device containing file */
+    this.dev = dev;
+    /* inode number */
+    this.mode = mode;
+    /* protection */
+    this.nlink = nlink;
+    /* number of hard links */
+    this.uid = uid;
+    /* user ID of owner */
+    this.gid = gid;
+    /* group ID of owner */
+    this.rdev = rdev;
+    /* device ID (if special file) */
+    this.blksize = blksize;
+    /* total size, in bytes */
+    this.ino = ino;
+    /* blocksize for file system I/O */
+    this.size = size;
+    /* number of 512B blocks allocated */
+    this.blocks = blocks;
+    /* time of last access */
+    this.atime = new Date(atim_msec);
+    /* time of last modification */
+    this.mtime = new Date(mtim_msec);
+    /* time of last status change */
+    this.ctime = new Date(ctim_msec);
+    this.birthtime = new Date(birthtim_msec);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.s3WriteStream" id="apidoc.element.s3fs.s3WriteStream">
+        function <span class="apidocSignatureSpan">s3fs.</span>s3WriteStream
+        <span class="apidocSignatureSpan">(client, bucket, key, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function S3WriteStream(client, bucket, key, options) {
+    if (!(this instanceof S3WriteStream)) {
+        return new S3WriteStream(client, bucket, key, options);
+    }
+    this.multiPartManager = new MultiPartManager(client, bucket, key, options);
+    var streamOptions = extend(defaultOptions, options);
+    //initialize
+    Writable.call(this, streamOptions);
+    this.bytesWritten = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_" id="apidoc.element.s3fs.super_">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FsInterface() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.appendFile" id="apidoc.element.s3fs.super_.prototype.appendFile">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.appendFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.appendFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.createReadStream" id="apidoc.element.s3fs.super_.prototype.createReadStream">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.createReadStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.createReadStream = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.createWriteStream" id="apidoc.element.s3fs.super_.prototype.createWriteStream">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.createWriteStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.createWriteStream = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.exists" id="apidoc.element.s3fs.super_.prototype.exists">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.exists
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.exists = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.lstat" id="apidoc.element.s3fs.super_.prototype.lstat">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.lstat
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.lstat = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.mkdir" id="apidoc.element.s3fs.super_.prototype.mkdir">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.mkdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.mkdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.readFile" id="apidoc.element.s3fs.super_.prototype.readFile">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.readFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.readFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.readdir" id="apidoc.element.s3fs.super_.prototype.readdir">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.readdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.readdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.realpath" id="apidoc.element.s3fs.super_.prototype.realpath">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.realpath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.realpath = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.rmdir" id="apidoc.element.s3fs.super_.prototype.rmdir">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.rmdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.rmdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.stat" id="apidoc.element.s3fs.super_.prototype.stat">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.stat
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.stat = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.unlink" id="apidoc.element.s3fs.super_.prototype.unlink">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.unlink
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.unlink = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.writeFile" id="apidoc.element.s3fs.super_.prototype.writeFile">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_.prototype.writeFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_.prototype.writeFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.toString" id="apidoc.element.s3fs.toString">
+        function <span class="apidocSignatureSpan">s3fs.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.Stats" id="apidoc.module.s3fs.Stats">module s3fs.Stats</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.Stats" id="apidoc.element.s3fs.Stats.Stats">
+        function <span class="apidocSignatureSpan">s3fs.</span>Stats
+        <span class="apidocSignatureSpan">(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec, birthtim_msec, path )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stats(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec, birthtim_msec, path ) {
+<span class="apidocCodeCommentSpan">    /* jshint maxparams: 4 */
+</span>    if (arguments.length === 1 &amp;&amp; typeof arguments[0] === 'object') {
+        return Stats.create(arguments[0]);
+    }
+    if (!Stats.is(this)) {
+        return new Stats(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec,
+            birthtim_msec, path);
+    }
+
+    var entry = path;
+    this.getEntry = function () {
+        return entry;
+    };
+
+    /* ID of device containing file */
+    this.dev = dev;
+    /* inode number */
+    this.mode = mode;
+    /* protection */
+    this.nlink = nlink;
+    /* number of hard links */
+    this.uid = uid;
+    /* user ID of owner */
+    this.gid = gid;
+    /* group ID of owner */
+    this.rdev = rdev;
+    /* device ID (if special file) */
+    this.blksize = blksize;
+    /* total size, in bytes */
+    this.ino = ino;
+    /* blocksize for file system I/O */
+    this.size = size;
+    /* number of 512B blocks allocated */
+    this.blocks = blocks;
+    /* time of last access */
+    this.atime = new Date(atim_msec);
+    /* time of last modification */
+    this.mtime = new Date(mtim_msec);
+    /* time of last status change */
+    this.ctime = new Date(ctim_msec);
+    this.birthtime = new Date(birthtim_msec);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.create" id="apidoc.element.s3fs.Stats.create">
+        function <span class="apidocSignatureSpan">s3fs.Stats.</span>create
+        <span class="apidocSignatureSpan">(object)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (object) {
+    if (!object || typeof object !== 'object') {
+        throw new Error('object is required to create a Stats');
+    }
+    var args = [];
+    statsArgs.forEach(function (arg) {
+        args.push(object[arg]);
+    });
+    return Stats.apply(this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+fsImpl.copyDir('test-folder', 'other-folder').then(function() {
+  // Directory was successfully copied
+}, function(reason) {
+  // Something went wrong
+});
+```
+
+### s3fs.<span class="apidocCodeKeywordSpan">create</span>(options[, callback])
+Creates a new bucket on S3.
+
+* options `Object`. _Optional_. The options to be used when creating the bucket. See [AWS SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK
+/latest/AWS/S3.html#createBucket-property)
+* callback `Function`. _Optional_. Callback to be used, if not provided will return a Promise
+
+```js
+var fsImpl = new S3FS('test-bucket', options);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.is" id="apidoc.element.s3fs.Stats.is">
+        function <span class="apidocSignatureSpan">s3fs.Stats.</span>is
+        <span class="apidocSignatureSpan">(object)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">is = function (object) {
+    return object instanceof Stats;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    /* jscs: disable requireCamelCaseOrUpperCaseIdentifiers */
+    /* eslint-disable camelcase */
+    function Stats(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec, birthtim_msec,
+path) {
+/* jshint maxparams: 4 */
+if (arguments.length === 1 &amp;&amp; typeof arguments[0] === 'object') {
+    return Stats.create(arguments[0]);
+}
+if (!Stats.<span class="apidocCodeKeywordSpan">is</span>(this)) {
+    return new Stats(dev, mode, nlink, uid, gid, rdev, blksize, ino, size, blocks, atim_msec, mtim_msec, ctim_msec,
+        birthtim_msec, path);
+}
+
+var entry = path;
+this.getEntry = function () {
+    return entry;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.Stats.prototype" id="apidoc.module.s3fs.Stats.prototype">module s3fs.Stats.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.prototype.isBlockDevice" id="apidoc.element.s3fs.Stats.prototype.isBlockDevice">
+        function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isBlockDevice
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isBlockDevice = function () {
+    return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.prototype.isCharacterDevice" id="apidoc.element.s3fs.Stats.prototype.isCharacterDevice">
+        function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isCharacterDevice
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isCharacterDevice = function () {
+    return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.prototype.isDirectory" id="apidoc.element.s3fs.Stats.prototype.isDirectory">
+        function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isDirectory
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isDirectory = function () {
+    return directoryRegexp.test(this.getEntry());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.prototype.isFIFO" id="apidoc.element.s3fs.Stats.prototype.isFIFO">
+        function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isFIFO
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isFIFO = function () {
+    return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.prototype.isFile" id="apidoc.element.s3fs.Stats.prototype.isFile">
+        function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isFile = function () {
+    return !directoryRegexp.test(this.getEntry());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.prototype.isSocket" id="apidoc.element.s3fs.Stats.prototype.isSocket">
+        function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isSocket
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isSocket = function () {
+    return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.Stats.prototype.isSymbolicLink" id="apidoc.element.s3fs.Stats.prototype.isSymbolicLink">
+        function <span class="apidocSignatureSpan">s3fs.Stats.prototype.</span>isSymbolicLink
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isSymbolicLink = function () {
+    return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.s3WriteStream" id="apidoc.module.s3fs.s3WriteStream">module s3fs.s3WriteStream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.s3WriteStream.s3WriteStream" id="apidoc.element.s3fs.s3WriteStream.s3WriteStream">
+        function <span class="apidocSignatureSpan">s3fs.</span>s3WriteStream
+        <span class="apidocSignatureSpan">(client, bucket, key, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function S3WriteStream(client, bucket, key, options) {
+    if (!(this instanceof S3WriteStream)) {
+        return new S3WriteStream(client, bucket, key, options);
+    }
+    this.multiPartManager = new MultiPartManager(client, bucket, key, options);
+    var streamOptions = extend(defaultOptions, options);
+    //initialize
+    Writable.call(this, streamOptions);
+    this.bytesWritten = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.s3WriteStream.super_" id="apidoc.element.s3fs.s3WriteStream.super_">
+        function <span class="apidocSignatureSpan">s3fs.s3WriteStream.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Writable(options) {
+  // Writable ctor is applied to Duplexes, too.
+  // `realHasInstance` is necessary because using plain `instanceof`
+  // would return false, as no `_writableState` property is attached.
+
+  // Trying to use the custom `instanceof` for Writable here will also break the
+  // Node.js LazyTransform implementation, which has a non-trivial getter for
+  // `_writableState` that would lead to infinite recursion.
+  if (!(realHasInstance.call(Writable, this)) &amp;&amp;
+      !(this instanceof Stream.Duplex)) {
+    return new Writable(options);
+  }
+
+  this._writableState = new WritableState(options, this);
+
+  // legacy.
+  this.writable = true;
+
+  if (options) {
+    if (typeof options.write === 'function')
+      this._write = options.write;
+
+    if (typeof options.writev === 'function')
+      this._writev = options.writev;
+  }
+
+  Stream.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.s3WriteStream.prototype" id="apidoc.module.s3fs.s3WriteStream.prototype">module s3fs.s3WriteStream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.s3WriteStream.prototype.end" id="apidoc.element.s3fs.s3WriteStream.prototype.end">
+        function <span class="apidocSignatureSpan">s3fs.s3WriteStream.prototype.</span>end
+        <span class="apidocSignatureSpan">(chunk, encoding, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function (chunk, encoding, cb) {
+    var self = this;
+    if (chunk) {
+        this.multiPartManager.addChunk(chunk);
+    }
+    this.multiPartManager.complete().then(function () {
+        self.bytesWritten = self.multiPartManager.bytesWritten;
+        self.emit('finish');
+        execCb(cb);
+    }, function (reason) {
+        self.bytesWritten = self.multiPartManager.bytesWritten;
+        self.emit('error', reason);
+        execCb(cb);
+    });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.s3WriteStream.prototype.write" id="apidoc.element.s3fs.s3WriteStream.prototype.write">
+        function <span class="apidocSignatureSpan">s3fs.s3WriteStream.prototype.</span>write
+        <span class="apidocSignatureSpan">(chunk, enc, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (chunk, enc, cb) {
+    this.multiPartManager.addChunk(chunk);
+    execCb(cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_" id="apidoc.module.s3fs.super_">module s3fs.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.super_" id="apidoc.element.s3fs.super_.super_">
+        function <span class="apidocSignatureSpan">s3fs.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FsInterface() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype" id="apidoc.module.s3fs.super_.prototype">module s3fs.super_.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.appendFile" id="apidoc.element.s3fs.super_.prototype.appendFile">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>appendFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">appendFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.createReadStream" id="apidoc.element.s3fs.super_.prototype.createReadStream">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>createReadStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createReadStream = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## Currently Supported Methods
+The methods below from Node.JS's [FS interface](http://nodejs.org/api/fs.html) are the only currently supported methods
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.<span class="apidocCodeKeywordSpan">createReadStream</span>(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options
+)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.createWriteStream" id="apidoc.element.s3fs.super_.prototype.createWriteStream">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>createWriteStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createWriteStream = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Currently Supported Methods
+The methods below from Node.JS's [FS interface](http://nodejs.org/api/fs.html) are the only currently supported methods
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.<span class="apidocCodeKeywordSpan">createWriteStream</span>(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options
+)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.exists" id="apidoc.element.s3fs.super_.prototype.exists">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>exists
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exists = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Currently Supported Methods
+The methods below from Node.JS's [FS interface](http://nodejs.org/api/fs.html) are the only currently supported methods
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.<span class="apidocCodeKeywordSpan">exists</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback
+)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.lstat" id="apidoc.element.s3fs.super_.prototype.lstat">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>lstat
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lstat = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">lstat</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.mkdir" id="apidoc.element.s3fs.super_.prototype.mkdir">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>mkdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">mkdir</span>(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback
+)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.readFile" id="apidoc.element.s3fs.super_.prototype.readFile">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>readFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">readFile</span>(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback
+)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.readdir" id="apidoc.element.s3fs.super_.prototype.readdir">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>readdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.<span class="apidocCodeKeywordSpan">readdir</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback
+)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.realpath" id="apidoc.element.s3fs.super_.prototype.realpath">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>realpath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">realpath = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.rmdir" id="apidoc.element.s3fs.super_.prototype.rmdir">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>rmdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rmdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.<span class="apidocCodeKeywordSpan">rmdir</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.stat" id="apidoc.element.s3fs.super_.prototype.stat">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>stat
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stat = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+The methods below from Node.JS's [FS interface](http://nodejs.org/api/fs.html) are the only currently supported methods
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">stat</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.unlink" id="apidoc.element.s3fs.super_.prototype.unlink">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>unlink
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unlink = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">unlink</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback
+)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+
+```js
+var bucketPath = 'mySuperCoolBucket';
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.writeFile" id="apidoc.element.s3fs.super_.prototype.writeFile">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>writeFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">writeFile</span>(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+
+```js
+var bucketPath = 'mySuperCoolBucket';
+var s3Options = {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.appendFile" id="apidoc.module.s3fs.super_.prototype.appendFile">module s3fs.super_.prototype.appendFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.appendFile.appendFile" id="apidoc.element.s3fs.super_.prototype.appendFile.appendFile">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>appendFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">appendFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.createReadStream" id="apidoc.module.s3fs.super_.prototype.createReadStream">module s3fs.super_.prototype.createReadStream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.createReadStream.createReadStream" id="apidoc.element.s3fs.super_.prototype.createReadStream.createReadStream">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>createReadStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createReadStream = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## Currently Supported Methods
+The methods below from Node.JS's [FS interface](http://nodejs.org/api/fs.html) are the only currently supported methods
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.<span class="apidocCodeKeywordSpan">createReadStream</span>(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options
+)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.createWriteStream" id="apidoc.module.s3fs.super_.prototype.createWriteStream">module s3fs.super_.prototype.createWriteStream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.createWriteStream.createWriteStream" id="apidoc.element.s3fs.super_.prototype.createWriteStream.createWriteStream">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>createWriteStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createWriteStream = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Currently Supported Methods
+The methods below from Node.JS's [FS interface](http://nodejs.org/api/fs.html) are the only currently supported methods
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.<span class="apidocCodeKeywordSpan">createWriteStream</span>(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options
+)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.exists" id="apidoc.module.s3fs.super_.prototype.exists">module s3fs.super_.prototype.exists</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.exists.exists" id="apidoc.element.s3fs.super_.prototype.exists.exists">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>exists
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exists = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Currently Supported Methods
+The methods below from Node.JS's [FS interface](http://nodejs.org/api/fs.html) are the only currently supported methods
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.<span class="apidocCodeKeywordSpan">exists</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback
+)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.lstat" id="apidoc.module.s3fs.super_.prototype.lstat">module s3fs.super_.prototype.lstat</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.lstat.lstat" id="apidoc.element.s3fs.super_.prototype.lstat.lstat">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>lstat
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lstat = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">lstat</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.mkdir" id="apidoc.module.s3fs.super_.prototype.mkdir">module s3fs.super_.prototype.mkdir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.mkdir.mkdir" id="apidoc.element.s3fs.super_.prototype.mkdir.mkdir">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>mkdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">mkdir</span>(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback
+)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.readFile" id="apidoc.module.s3fs.super_.prototype.readFile">module s3fs.super_.prototype.readFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.readFile.readFile" id="apidoc.element.s3fs.super_.prototype.readFile.readFile">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>readFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">readFile</span>(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback
+)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.readdir" id="apidoc.module.s3fs.super_.prototype.readdir">module s3fs.super_.prototype.readdir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.readdir.readdir" id="apidoc.element.s3fs.super_.prototype.readdir.readdir">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>readdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.<span class="apidocCodeKeywordSpan">readdir</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback
+)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.realpath" id="apidoc.module.s3fs.super_.prototype.realpath">module s3fs.super_.prototype.realpath</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.realpath.realpath" id="apidoc.element.s3fs.super_.prototype.realpath.realpath">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>realpath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">realpath = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.rmdir" id="apidoc.module.s3fs.super_.prototype.rmdir">module s3fs.super_.prototype.rmdir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.rmdir.rmdir" id="apidoc.element.s3fs.super_.prototype.rmdir.rmdir">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>rmdir
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rmdir = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.<span class="apidocCodeKeywordSpan">rmdir</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+
+```js
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.stat" id="apidoc.module.s3fs.super_.prototype.stat">module s3fs.super_.prototype.stat</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.stat.stat" id="apidoc.element.s3fs.super_.prototype.stat.stat">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>stat
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stat = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+The methods below from Node.JS's [FS interface](http://nodejs.org/api/fs.html) are the only currently supported methods
+matching the signature and functionality of the `fs` module. All of the methods support either usage through callbacks
+or promises. There isn't any support for synchronous actions currently as there isn't a need.
+
+* [fs.createReadStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+* [fs.createWriteStream(path, [options])](http://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">stat</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.unlink" id="apidoc.module.s3fs.super_.prototype.unlink">module s3fs.super_.prototype.unlink</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.unlink.unlink" id="apidoc.element.s3fs.super_.prototype.unlink.unlink">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>unlink
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unlink = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [fs.exists(path, callback)](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback)
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">unlink</span>(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback
+)
+* [fs.writeFile(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+
+```js
+var bucketPath = 'mySuperCoolBucket';
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.super_.prototype.writeFile" id="apidoc.module.s3fs.super_.prototype.writeFile">module s3fs.super_.prototype.writeFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.super_.prototype.writeFile.writeFile" id="apidoc.element.s3fs.super_.prototype.writeFile.writeFile">
+        function <span class="apidocSignatureSpan">s3fs.super_.prototype.</span>writeFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeFile = function () {
+    notImplemented(method);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [fs.stat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
+* [fs.lstat(path, callback)](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback)
+* [fs.mkdir(path, [mode], callback)](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback)
+* [fs.readdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
+* [fs.readFile(filename, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.rmdir(path, callback)](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback)
+* [fs.unlink(path, callback)](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
+* [fs.<span class="apidocCodeKeywordSpan">writeFile</span>(filename, data, [options], callback)](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback
+)
+
+### Constructor Details
+Creating an instance of `S3fs` takes in the `bucketPath` and `options` which are passed on to the [S3 constructor](http://docs.aws
+.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+
+```js
+var bucketPath = 'mySuperCoolBucket';
+var s3Options = {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.toString" id="apidoc.module.s3fs.toString">module s3fs.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.toString.toString" id="apidoc.element.s3fs.toString.toString">
+        function <span class="apidocSignatureSpan">s3fs.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.s3fs.utils" id="apidoc.module.s3fs.utils">module s3fs.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.utils.decomposePath" id="apidoc.element.s3fs.utils.decomposePath">
+        function <span class="apidocSignatureSpan">s3fs.utils.</span>decomposePath
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decomposePath = function (path) {
+    var pathArray = [];
+    return path ? path.split('/').reduce(function (array, value) {
+        if (value) {
+            array.push(value);
+        }
+        return array;
+    }, pathArray) : pathArray;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    fullPath = fullPath || '';
+    var path = fullPath,
+        bucketKeyPath;
+    if (bucket) {
+        bucketKeyPath = this.joinPaths(bucket, bucketPath);
+        path = fullPath.replace(bucketKeyPath, '');
+    }
+    return this.normalizePath(this.<span class="apidocCodeKeywordSpan">decomposePath</span>(path).join('/'));
+},
+joinPaths: function () {
+    var args = Array.prototype.slice.call(arguments);
+    return args.reduce(function (array, path) {
+        return array.concat(this.decomposePath(path));
+    }.bind(this), []).join('/');
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.utils.isAbsolute" id="apidoc.element.s3fs.utils.isAbsolute">
+        function <span class="apidocSignatureSpan">s3fs.utils.</span>isAbsolute
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isAbsolute = function (path) {
+    if (path[0] === '/') {
+        return true;
+    }
+    if (path[1] === ':' &amp;&amp; path[2] === '\\') {
+        return true;
+    }
+    if (path.substring(0, 2) === '\\\\') {
+        // Microsoft Azure absolute path
+        return true;
+    }
+    return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+return parts;
+        },
+        normalizePath: function (path) {
+var tailIndex = 3;
+var result = splitDeviceRegExp.exec(path),
+    device = result[1] || '',
+    isAbsolute = this.<span class="apidocCodeKeywordSpan">isAbsolute</span>(path),
+    tail = result[tailIndex],
+    trailingSlash = /[\\\/]$/.test(tail);
+
+// Normalize the tail path
+tail = this.normalizeArray(tail.split(/[\\\/]+/).filter(function (p) {
+    return !!p;
+}), !isAbsolute).join('/');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.utils.joinPaths" id="apidoc.element.s3fs.utils.joinPaths">
+        function <span class="apidocSignatureSpan">s3fs.utils.</span>joinPaths
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">joinPaths = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return args.reduce(function (array, path) {
+        return array.concat(this.decomposePath(path));
+    }.bind(this), []).join('/');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }, pathArray) : pathArray;
+},
+toKey: function (fullPath, bucket, bucketPath) {
+    fullPath = fullPath || '';
+    var path = fullPath,
+        bucketKeyPath;
+    if (bucket) {
+        bucketKeyPath = this.<span class="apidocCodeKeywordSpan">joinPaths</span>(bucket, bucketPath);
+        path = fullPath.replace(bucketKeyPath, '');
+    }
+    return this.normalizePath(this.decomposePath(path).join('/'));
+},
+joinPaths: function () {
+    var args = Array.prototype.slice.call(arguments);
+    return args.reduce(function (array, path) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.utils.normalizeArray" id="apidoc.element.s3fs.utils.normalizeArray">
+        function <span class="apidocSignatureSpan">s3fs.utils.</span>normalizeArray
+        <span class="apidocSignatureSpan">(parts, allowAboveRoot)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizeArray = function (parts, allowAboveRoot) {
+    // if the path tries to go above the root, `up` ends up &gt; 0
+    var up = 0,
+        i,
+        last;
+    for (i = parts.length - 1; i &gt;= 0; i--) {
+        last = parts[i];
+        if (last === '.') {
+            parts.splice(i, 1);
+        } else if (last === '..') {
+            parts.splice(i, 1);
+            up++;
+        } else if (up) {
+            parts.splice(i, 1);
+            up--;
+        }
+    }
+
+    // if the path is allowed to go above the root, restore leading ..s
+    if (allowAboveRoot) {
+        for (; up--; up) {
+            parts.unshift('..');
+        }
+    }
+
+    return parts;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var result = splitDeviceRegExp.exec(path),
+    device = result[1] || '',
+    isAbsolute = this.isAbsolute(path),
+    tail = result[tailIndex],
+    trailingSlash = /[\\\/]$/.test(tail);
+
+// Normalize the tail path
+tail = this.<span class="apidocCodeKeywordSpan">normalizeArray</span>(tail.split(/[\\\/]+/).filter(function (p) {
+    return !!p;
+}), !isAbsolute).join('/');
+
+if (tail &amp;&amp; trailingSlash) {
+    tail += '/';
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.utils.normalizePath" id="apidoc.element.s3fs.utils.normalizePath">
+        function <span class="apidocSignatureSpan">s3fs.utils.</span>normalizePath
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizePath = function (path) {
+    var tailIndex = 3;
+    var result = splitDeviceRegExp.exec(path),
+        device = result[1] || '',
+        isAbsolute = this.isAbsolute(path),
+        tail = result[tailIndex],
+        trailingSlash = /[\\\/]$/.test(tail);
+
+    // Normalize the tail path
+    tail = this.normalizeArray(tail.split(/[\\\/]+/).filter(function (p) {
+        return !!p;
+    }), !isAbsolute).join('/');
+
+    if (tail &amp;&amp; trailingSlash) {
+        tail += '/';
+    }
+
+    // Smash multiple slashes
+    return (device + (isAbsolute ? '\\' : '') + tail).replace(/[\\\/]+/g, '/');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    fullPath = fullPath || '';
+    var path = fullPath,
+        bucketKeyPath;
+    if (bucket) {
+        bucketKeyPath = this.joinPaths(bucket, bucketPath);
+        path = fullPath.replace(bucketKeyPath, '');
+    }
+    return this.<span class="apidocCodeKeywordSpan">normalizePath</span>(this.decomposePath(path).join('/'));
+},
+joinPaths: function () {
+    var args = Array.prototype.slice.call(arguments);
+    return args.reduce(function (array, path) {
+        return array.concat(this.decomposePath(path));
+    }.bind(this), []).join('/');
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.s3fs.utils.toKey" id="apidoc.element.s3fs.utils.toKey">
+        function <span class="apidocSignatureSpan">s3fs.utils.</span>toKey
+        <span class="apidocSignatureSpan">(fullPath, bucket, bucketPath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toKey = function (fullPath, bucket, bucketPath) {
+    fullPath = fullPath || '';
+    var path = fullPath,
+        bucketKeyPath;
+    if (bucket) {
+        bucketKeyPath = this.joinPaths(bucket, bucketPath);
+        path = fullPath.replace(bucketKeyPath, '');
+    }
+    return this.normalizePath(this.decomposePath(path).join('/'));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>

@@ -1,4 +1,7 @@
-# api documentation for  [s3fs (v2.5.0)](http://github.com/RiptideElements/s3fs)  [![npm package](https://img.shields.io/npm/v/npmdoc-s3fs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-s3fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-s3fs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-s3fs)
+# npmdoc-s3fs
+
+#### api documentation for  [s3fs (v2.5.0)](http://github.com/RiptideElements/s3fs)  [![npm package](https://img.shields.io/npm/v/npmdoc-s3fs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-s3fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-s3fs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-s3fs)
+
 #### Implementation of Node.JS FS interface using Amazon Simple Storage Service (S3).
 
 [![NPM](https://nodei.co/npm/s3fs.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/s3fs)
